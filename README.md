@@ -2,6 +2,8 @@
 
 QGIS 3.4.x from [QGIS.org](http://qgis.org)
 
+Included: QGIS-Processing - GRASS GIS 7.4
+
 ## Installation
 
 Available via [mundialis docker hub repo](https://hub.docker.com/r/mundialis/docker-qgis3/):
