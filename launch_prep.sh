@@ -3,10 +3,10 @@
 # Put any tasks you would like to have carried
 # out when the container is first created here
 
-USER_NAME=`basename $HHHOME`
-HOME_NAME=`dirname $HHHOME`
+USER_NAME=`basename $MYHOME`
+HOME_NAME=`dirname $MYHOME`
 
-USER_ID=`ls -lahn $HOME_NAME | grep $USER_NAME | awk {'print $3'}`
+USER_ID=`ls  -lahn $HOME_NAME | grep $USER_NAME | awk {'print $3'}`
 GROUP_ID=`ls -lahn $HOME_NAME | grep $USER_NAME | awk {'print $4'}`
 
 groupadd -g $GROUP_ID qgis

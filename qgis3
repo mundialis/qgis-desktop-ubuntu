@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# QGIS 3.4.latest in docker
+#
+# INSTALLATION:
+#    docker pull mundialis/docker-qgis3
+#
+# AUTHORS:
+#    mundialis GmbH & Co. KG
+#    Markus Neteler, 2018 <neteler@mundialis.de>
+#
+# inspired by
+#   https://github.com/timcera/qgis-desktop-ubuntu
+#
+#
+# SOURCE CODE:
+#   https://github.com/mundialis/docker-qgis3
+#
+###################
+
+# get user name
+USER_NAME=`basename $HOME`
+
+# MYHOME is used to pass the HOME directory of the user running qgis
+# and is used in "launch_prep.sh" to create the same user within the container.
+
+# The user home is mounted as HOME
+# --rm will remove the container as soon as it ends
+
+
+sudo docker run --rm --name qgis3 \
+    -it \
+    -v ${HOME}:/home/${USER_NAME} \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -e MYHOME=${HOME} \
+    mundialis/docker-qgis3
+
