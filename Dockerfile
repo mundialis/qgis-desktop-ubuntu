@@ -54,6 +54,6 @@ RUN    apt-get -y update                                                  \
 # Called when the Docker image is started in the container
 
 ADD launch_prep.sh /launch_prep.sh
-RUN sudo chmod +x /launch_prep.sh
+RUN chmod +x /launch_prep.sh
 CMD ["/launch_prep.sh"]
 
