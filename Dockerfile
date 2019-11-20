@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
@@ -21,7 +21,6 @@ RUN    echo $TZ > /etc/timezone                                              \
     && apt-get -y install --no-install-recommends tzdata                     \
                                                   dirmngr                    \
                                                   apt-transport-https        \
-                                                  python-software-properties \
                                                   software-properties-common \
     && add-apt-repository ppa:ubuntugis/ubuntugis-unstable                   \
     && rm /etc/localtime                                                     \
@@ -31,23 +30,22 @@ RUN    echo $TZ > /etc/timezone                                              \
     && apt-get purge                                                         \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN    echo "deb     https://qgis.org/ubuntugis xenial main" >> /etc/apt/sources.list
-RUN    echo "deb-src https://qgis.org/ubuntugis xenial main" >> /etc/apt/sources.list
+RUN    echo "deb     https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources.list
+RUN    echo "deb-src https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources.list
 
 # Key for qgis ubuntugis
 RUN    apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
 
 RUN    apt-get -y update                                                  \
     && apt-get -y install --no-install-recommends                         \
-                                                  python-requests         \
-                                                  python-numpy            \
-                                                  python-pandas           \
-                                                  python-scipy            \
-                                                  python-matplotlib       \
-                                                  python-pyside.qtwebkit  \
+                                                  python3-requests         \
+                                                  python3-numpy            \
+                                                  python3-pandas           \
+                                                  python3-scipy            \
+                                                  python3-matplotlib       \
+                                                  python3-pyside.qtwebkit  \
                                                   gdal-bin                \
                                                   qgis                    \
-                                                  python-qgis             \
                                                   qgis-provider-grass     \
                                                   grass                   \
     && apt-get clean                                                      \
@@ -59,4 +57,3 @@ RUN    apt-get -y update                                                  \
 ADD launch_prep.sh /launch_prep.sh
 RUN chmod +x /launch_prep.sh
 CMD ["/launch_prep.sh"]
-
