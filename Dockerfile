@@ -34,7 +34,7 @@ RUN    echo "deb     https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources
 RUN    echo "deb-src https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources.list
 
 # Key for qgis ubuntugis
-RUN    apt-key adv --keyserver keyserver.ubuntu.com --recv-key CAEB3DC3BDF7FB45
+RUN    apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
 
 RUN    apt-get -y update                                                  \
     && apt-get -y install --no-install-recommends                         \
