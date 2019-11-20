@@ -19,7 +19,7 @@ ENV TZ Europe/Berlin
 RUN    echo $TZ > /etc/timezone                                              \
     && apt-get -y update                                                     \
     && apt-get -y install --no-install-recommends tzdata                     \
-                                                  dirmngr                    \
+                                                  dirmngr gpg-agent          \
                                                   apt-transport-https        \
                                                   software-properties-common \
     && add-apt-repository ppa:ubuntugis/ubuntugis-unstable                   \
