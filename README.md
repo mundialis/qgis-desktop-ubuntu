@@ -1,8 +1,8 @@
-# Latest QGIS 3 in docker (QGIS 3.4.x)
+# Latest QGIS 3 in docker (QGIS 3.10.x)
 
-QGIS 3.4.x from [QGIS.org](http://qgis.org)
+QGIS 3.10.x from [QGIS.org](http://qgis.org)
 
-Included: QGIS-Processing - GRASS GIS 7.4
+Included: QGIS-Processing - GRASS GIS 7
 
 ## Installation
 
