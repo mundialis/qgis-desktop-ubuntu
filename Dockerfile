@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #   https://github.com/timcera/qgis-desktop-ubuntu
 #
 # Instead of compiling, this image is a "apt-get install" from
-# http://qgis.org/ubuntugis of the latest QGIS 3.4.
+# http://qgis.org/ubuntugis of the latest QGIS 3.10.
 
 LABEL maintainer="Markus Neteler <neteler@mundialis.de>"
 
