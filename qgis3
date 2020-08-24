@@ -1,13 +1,13 @@
 #!/bin/sh
 
-# QGIS 3.4.latest in docker
+# QGIS 3.x.latest in docker
 #
 # INSTALLATION:
 #    docker pull mundialis/docker-qgis3
 #
 # AUTHORS:
 #    mundialis GmbH & Co. KG
-#    Markus Neteler, 2018 <neteler@mundialis.de>
+#    Markus Neteler, 2018-2020 <neteler@mundialis.de>
 #
 # inspired by
 #   https://github.com/timcera/qgis-desktop-ubuntu
@@ -27,7 +27,7 @@ USER_NAME=`basename $HOME`
 # The user home is mounted as HOME
 # --rm will remove the container as soon as it ends
 
-
+# Ubuntu
 sudo docker run --rm --name qgis3 \
     -it \
     -v ${HOME}:/home/${USER_NAME} \
@@ -36,3 +36,14 @@ sudo docker run --rm --name qgis3 \
     -e MYHOME=${HOME} \
     mundialis/docker-qgis3
 
+
+# Centos 8
+#DOCKER=podman
+#DOCKER=docker
+#sudo $DOCKER run --rm --name qgis3 \
+#    -it \
+#    -v ${HOME}:/home/${USER_NAME} \
+#    -v ~/.Xauthority:/root/.Xauthority:Z \
+#    -e DISPLAY --net=host \
+#    -e MYHOME=${HOME}  \
+#    mundialis/docker-qgis3
